@@ -57,18 +57,17 @@ pipeline {
             } 
         }
 */
-
-/*	stage('TRIVY SCAN') {
+	stage('TRIVY SCAN') {
             steps {
                 sh "trivy $DOCKER_IMAGE"
             }
         }
-*/
+
 
 
         stage('Build Docker Image') {
             steps {
-                sh "docker image build -t ${DOCKER_IMAGE} ."
+                sh "sudo /usr/bin/docker image build -t ${DOCKER_IMAGE}:latest ."
             }
         }
 
