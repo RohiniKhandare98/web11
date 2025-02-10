@@ -108,5 +108,5 @@ stage('TRIVY SCAN') {
 		}
         }
         
-    
+	}    
 }  
