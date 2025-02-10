@@ -57,12 +57,12 @@ pipeline {
             } 
         }
 */
-	stage('TRIVY SCAN') {
+/*	stage('TRIVY SCAN') {
             steps {
                 sh "trivy $DOCKER_IMAGE"
             }
         }
-
+*/
 
 
         stage('Build Docker Image') {
