@@ -60,7 +60,7 @@ stage('SonarQube Analysis') {
                 }
             }
         }
-    }
+    
 
 stage('Deploy to Kubernetes') {
     steps {
@@ -71,6 +71,6 @@ stage('Deploy to Kubernetes') {
         }
     }
 }
-
+}
 
 }
