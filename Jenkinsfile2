@@ -7,13 +7,13 @@ pipeline {
 	
     }
     stages {
-
+/*
         stage('SCM') {
             steps {
 		git branch: 'main', credentialsId: 'git', url: 'https://github.com/RohiniKhandare98/web11.git'
             }
-        }
-        
+       }
+*/        
         // stage("Sonarqube Analysis "){
         //  steps{   
         //     script {
@@ -23,10 +23,10 @@ pipeline {
         //             //sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=web_app -Dsonar.projectKey=web_app
         //         sh '''   
         //             ${scannerHome}/bin/sonar-scanner \ 
-        //             -Dsonar.projectKey=web_app \
+        //             -Dsonar.projectKey=p1 \
         //             -Dsonar.sources=. \
         //             -Dsonar.host.url=http://192.168.80.167:9000 \
-        //             -Dsonar.login=sqp_d51608d022e2a637f750a557998f700b644c70b8
+        //             -Dsonar.login=sqp_3a5ec1b898b5061aec3e29cfb581fc6b21ae85ef
         //             '''
         //         }
             
@@ -108,5 +108,5 @@ stage('TRIVY SCAN') {
 		}
         }
         
-    }
+	}    
 }  
