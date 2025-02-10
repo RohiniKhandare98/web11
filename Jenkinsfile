@@ -67,8 +67,8 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-//                sh "sudo /usr/bin/docker image build -t ${DOCKER_IMAGE}:latest ."
-sh 'echo "sunbeam" | sudo -S docker image build -t rohini1/web_new:latest .'
+                sh "/usr/bin/docker image build -t ${DOCKER_IMAGE}:latest ."
+//sh 'echo "sunbeam" | sudo -S docker image build -t rohini1/web_new:latest .'
   
           }
         }
