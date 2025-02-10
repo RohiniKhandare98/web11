@@ -61,4 +61,16 @@ stage('SonarQube Analysis') {
             }
         }
     }
+
+stage('Deploy to Kubernetes') {
+    steps {
+        script {
+            withKubeConfig([credentialsId: 'kubeconfig']) {
+                sh "kubectl apply -f httpd-deployment.yaml"
+            }
+        }
+    }
+}
+
+
 }
