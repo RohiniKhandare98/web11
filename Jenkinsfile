@@ -6,8 +6,8 @@ pipeline {
 	   SCANNER_HOME=tool 'sonar-scanner'
 	
     }
-/*    stages {
-
+    stages {
+/*
         stage('SCM') {
             steps {
 		git branch: 'main', credentialsId: 'git', url: 'https://github.com/RohiniKhandare98/web11.git'
