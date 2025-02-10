@@ -4,8 +4,8 @@ pipeline {
     environment {
         DOCKER_IMAGE = "rohini1/web_new"
         SONAR_HOST_URL = 'http://localhost:9000'
-        KUBECONFIG = "/var/lib/jenkins/.kube/config"
-    }
+	   SCANNER_HOME=tool 'sonar-scanner'        
+   }
 
     stages {
     
@@ -15,19 +15,18 @@ pipeline {
             }
         }
 
-        stage('SonarQube Analysis') {
-            environment {
-                SONAR_AUTH_TOKEN = credentials('sonar-token')
-            }
+stage('SonarQube Analysis') {
             steps {
-                script {
-                    sh '''
-                    /opt/sonar-scanner/bin/sonar-scanner \
-                    -Dsonar.projectKey=sample_project \
-                    -Dsonar.host.url=$SONAR_HOST_URL \
-                    -Dsonar.login=$SONAR_AUTH_TOKEN
-                    '''
-                }
+                    withSonarQubeEnv('sonar-server') {
+                        sh """
+                               ${SCANNER_HOME}/bin/sonar-scanner \
+                        -Dsonar.projectKey=p1 \
+                        -Dsonar.sources=. \
+                        -Dsonar.host.url=http://localhost:9000 \
+                        -Dsonar.login=sqp_3a5ec1b898b5061aec3e29cfb581fc6b21ae85ef
+                        """
+                    }
+                
             }
         }
 
