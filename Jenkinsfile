@@ -1,11 +1,11 @@
 pipeline {
-    agent {
+/*    agent {
         kubernetes {
             cloud 'Kubernetes'  // Name of your Kubernetes cloud in Jenkins
 //           yamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod
         }
     }
-  
+  */
      environment {
         DOCKER_IMAGE = "rohini1/web_new"
 	   SCANNER_HOME=tool 'sonar-scanner'
