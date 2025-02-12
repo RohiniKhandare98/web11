@@ -6,6 +6,8 @@ pipeline {
         }
     }
   */
+agent any
+
      environment {
         DOCKER_IMAGE = "rohini1/web_new"
 	   SCANNER_HOME=tool 'sonar-scanner'
