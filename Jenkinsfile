@@ -79,14 +79,6 @@ pipeline {
         }
 
 
-stage('OWASP FS SCAN') {
-//           steps {
-  //             dependencyCheck additionalArguments: '--scan ./ --disableYarnAud>
- //              dependencyCheckPublisher pattern: '**/dependency-check-report.xm>
-//           }
-       }
-
-
 stage('TRIVY SCAN') {
             steps {
                  sh "trivy fs . > trivyfs.txt"
