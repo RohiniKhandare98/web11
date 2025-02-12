@@ -61,4 +61,95 @@ drwxr-xr-x 8 jenkins jenkins 4.0K Feb 12 11:35  [01;34m.git[0m
 -rw-r--r-- 1 jenkins jenkins    8 Feb 12 10:21  README.md
 [?2004h]0;sunbeam@master: ~/p6[01;32msunbeam@master[00m:[01;34m~/p6[00m$ ls -lah /var/lib/jenkins/workspace/pipeline_10@script/98e3df1e73a4e66542a769b5105133042755bf4eca9edcb48616beee8089553a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
 [K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push[Kcommit -m "up"[9Padd .nano Jenkinsfile
-[?2004l[?2004h[?1049h[22;0;0t[1;24r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[22;50H(B[0;7m[ Reading... ](B[m[22;48H(B[0;7m[ Read 150 lines ](B[m[H(B[0;7m  GNU nano 6.2                                       Jenkinsfile                                                 [1;112H(B[m[23d(B[0;7m^G(B[m Help[23;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[23;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[24d(B[0;7m^X(B[m Exit[24;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[24;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[2dpipeline {[3;5Hagent {[4;9Hkubernetes {[5;13Hcloud 'Kubernetes'  // Name of your Kubernetes cloud in Jenkins[6;12HyamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod[7;9H}[8;5H}[10denvironment {[11;9HDOCKER_IMAGE = "rohini1/web_new"[12;8H[38;5;208m[1K [39m(B[m   SCANNER_HOME=tool 'sonar-scanner'[13;8H[38;5;208m[1K [39m(B[mKUBECONFIG = credentials('jenkins-k8s-token')[38;5;208m   [14;6H[39m(B[mGIT_REPO = 'git@github.com:[94mhttps://github.com/RohiniKhandare98/web11.git'[15;9H[39m(B[mGIT_BRANCH = 'main'[16;9HSSH_CRED_ID = 'k8-master'[17;5H}[18dstages {[20;9Hstage('SCM') {[21;13Hsteps {[2d[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[1;66H(B[0;7m*[112G(B[m[?12l[?25h[6d/[6;12H yamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod/[?25l[?12l[?25h//[6;13H yamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod//[?25l[?12l[?25h[7d[?25l[22;48H  (B[0;7m[ Writing... ](B[m[K[1;66H(B[0;7m [112G(B[m[22;48H(B[0;7m[ Wrote 150 lines ](B[m[?12l[?25h[7;3H[?25l[22d[J[24d[?12l[?25h[24;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;sunbeam@master: ~/p6[01;32msunbeam@master[00m:[01;34m~/p6[00m$ nano Jenkinsfilels -lah /var/lib/jenkins/workspace/pipeline_10@script/98e3df1e73a4e66542a769b5105133042755bf4eca9edcb48616beee8089553a
+[?2004l[?2004h[?1049h[22;0;0t[1;24r(B[m[4l[?7h[39;49m[?1h=[?1h=[?25l[39;49m(B[m[H[2J[22;50H(B[0;7m[ Reading... ](B[m[22;48H(B[0;7m[ Read 150 lines ](B[m[H(B[0;7m  GNU nano 6.2                                       Jenkinsfile                                                 [1;112H(B[m[23d(B[0;7m^G(B[m Help[23;17H(B[0;7m^O(B[m Write Out    (B[0;7m^W(B[m Where Is     (B[0;7m^K(B[m Cut[23;65H(B[0;7m^T(B[m Execute[81G(B[0;7m^C(B[m Location     (B[0;7mM-U(B[m Undo[24d(B[0;7m^X(B[m Exit[24;17H(B[0;7m^R(B[m Read File    (B[0;7m^\(B[m Replace[49G(B[0;7m^U(B[m Paste[24;65H(B[0;7m^J(B[m Justify[81G(B[0;7m^/(B[m Go To Line   (B[0;7mM-E(B[m Redo[2dpipeline {[3;5Hagent {[4;9Hkubernetes {[5;13Hcloud 'Kubernetes'  // Name of your Kubernetes cloud in Jenkins[6;12HyamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod[7;9H}[8;5H}[10denvironment {[11;9HDOCKER_IMAGE = "rohini1/web_new"[12;8H[38;5;208m[1K [39m(B[m   SCANNER_HOME=tool 'sonar-scanner'[13;8H[38;5;208m[1K [39m(B[mKUBECONFIG = credentials('jenkins-k8s-token')[38;5;208m   [14;6H[39m(B[mGIT_REPO = 'git@github.com:[94mhttps://github.com/RohiniKhandare98/web11.git'[15;9H[39m(B[mGIT_BRANCH = 'main'[16;9HSSH_CRED_ID = 'k8-master'[17;5H}[18dstages {[20;9Hstage('SCM') {[21;13Hsteps {[2d[?12l[?25h[?25l[?12l[?25h[3d[?25l[?12l[?25h[4d[?25l[?12l[?25h[5d[?25l[?12l[?25h[6d[?25l[1;66H(B[0;7m*[112G(B[m[?12l[?25h[6d/[6;12H yamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod/[?25l[?12l[?25h//[6;13H yamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod//[?25l[?12l[?25h[7d[?25l[22;48H  (B[0;7m[ Writing... ](B[m[K[1;66H(B[0;7m [112G(B[m[22;48H(B[0;7m[ Wrote 150 lines ](B[m[?12l[?25h[7;3H[?25l[22d[J[24d[?12l[?25h[24;1H[?1049l[23;0;0t[?1l>[?2004l[?2004h]0;sunbeam@master: ~/p6[01;32msunbeam@master[00m:[01;34m~/p6[00m$ nano Jenkinsfilels -lah /var/lib/jenkins/workspace/pipeline_10@script/98e3df1e73a4e66542a769b5105133042755bf4eca9edcb48616beee8089553a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push[Kcommit -m "up"[9Padd .nano Jenkinsfile[7Pgit add .
+[?2004l[?2004h]0;sunbeam@master: ~/p6[01;32msunbeam@master[00m:[01;34m~/p6[00m$ git add .nano Jenkinsfilels -lah /var/lib/jenkins/workspace/pipeline_10@script/98e3df1e73a4e66542a769b5105133042755bf4eca9edcb48616beee8089553a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push[Kcommit -m "up"
+[?2004l[main 2aaea32] up
+ 2 files changed, 43 insertions(+), 2 deletions(-)
+[?2004h]0;sunbeam@master: ~/p6[01;32msunbeam@master[00m:[01;34m~/p6[00m$ git commit -m "up"[9Padd .nano Jenkinsfilels -lah /var/lib/jenkins/workspace/pipeline_10@script/98e3df1e73a4e66542a769b5105133042755bf4eca9edcb48616beee8089553a[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K
+[K[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[K[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cgit push[K
+[?2004lUsername for 'https://github.com': RohiniKhandare98
+Password for 'https://RohiniKhandare98@github.com': 
+Enumerating objects: 7, done.
+Counting objects:  14% (1/7)Counting objects:  28% (2/7)Counting objects:  42% (3/7)Counting objects:  57% (4/7)Counting objects:  71% (5/7)Counting objects:  85% (6/7)Counting objects: 100% (7/7)Counting objects: 100% (7/7), done.
+Delta compression using up to 4 threads
+Compressing objects:  25% (1/4)Compressing objects:  50% (2/4)Compressing objects:  75% (3/4)Compressing objects: 100% (4/4)Compressing objects: 100% (4/4), done.
+Writing objects:  25% (1/4)Writing objects:  50% (2/4)Writing objects:  75% (3/4)Writing objects: 100% (4/4)Writing objects: 100% (4/4), 1.39 KiB | 1.39 MiB/s, done.
+Total 4 (delta 3), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas:   0% (0/3)[Kremote: Resolving deltas:  33% (1/3)[Kremote: Resolving deltas:  66% (2/3)[Kremote: Resolving deltas: 100% (3/3)[Kremote: Resolving deltas: 100% (3/3), completed with 3 local objects.[K
+To https://github.com/RohiniKhandare98/web11.git
+   b24c13c..2aaea32  main -> main
+[?2004h]0;sunbeam@master: ~/p6[01;32msunbeam@master[00m:[01;34m~/p6[00m$ [7mps aux | grep jenkins[27m
+[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cps aux | grep jenkins
+[A
+[?2004l[01;31m[Kjenkins[m[K    11212  5.8 12.8 5872804 1035368 ?     Ssl  10:39   3:56 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/[01;31m[Kjenkins[m[K.war
+sunbeam    12516  0.0  0.0   9080  2432 pts/4    S+   11:47   0:00 grep --color=auto [01;31m[Kjenkins[m[K
+[?2004h]0;sunbeam@master: ~/p6[01;32msunbeam@master[00m:[01;34m~/p6[00m$ [7msudo su - jenkins[27m
+[7mssh -i ~/.ssh/id_rsa user@remote-server[27m
+[A[A[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Csudo su - jenkins
+ssh -i ~/.ssh/id_rsa user@remote-server[C[1P@remote-server[1P@remote-server[1P@remote-server[1P@remote-servers@remote-serveru@remote-servern@remote-serverb@remote-servere@remote-servera@remote-serverm@remote-server[C[C[C[C[C[C[C[C[C[C[C[C[C[C             mats   s aster
+[?2004l[sudo] password for sunbeam: 
+[?2004hjenkins@master:~$ [7mssh-keygen -t rsa -b 4096[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssh-keygen -t rsa -b 4096
+[?2004lGenerating public/private rsa key pair.
+Enter file in which to save the key (/var/lib/jenkins/.ssh/id_rsa): 
+Created directory '/var/lib/jenkins/.ssh'.
+Enter passphrase (empty for no passphrase): 
+Enter same passphrase again: 
+Your identification has been saved in /var/lib/jenkins/.ssh/id_rsa
+Your public key has been saved in /var/lib/jenkins/.ssh/id_rsa.pub
+The key fingerprint is:
+SHA256:72W+I1oXpdr1yH4L6JXArDI1ij18n0UUr74WNahOdy4 jenkins@master
+The key's randomart image is:
++---[RSA 4096]----+
+|             .   |
+|              o  |
+|             .o. |
+|          o .+.o |
+|        So ++oo .|
+|      + o.o==*.+ |
+|     . B o*.*** .|
+|        =o+*=Eo..|
+|        ...=++oo.|
++----[SHA256]-----+
+[?2004hjenkins@master:~$ [7mssh-copy-id user@remote-server[27m[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cssh-copy-id user@remote-server[C[K[K[K[K[K[K[K[K[K[K[K[K[Kmaster[1Pr@master[C[1P@master[1P@master[1P@masters@masteru@mastern@masterb@mastere@mastera@masterm@master
+[?2004l/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/var/lib/jenkins/.ssh/id_rsa.pub"
+The authenticity of host 'master (127.0.1.1)' can't be established.
+ED25519 key fingerprint is SHA256:y/tvEHuUsmmBbzLG4FZAvuRoFmQ14+HSjgooP38YV8c.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+The authenticity of host 'master (127.0.1.1)' can't be established.
+ED25519 key fingerprint is SHA256:y/tvEHuUsmmBbzLG4FZAvuRoFmQ14+HSjgooP38YV8c.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? 
+
+/usr/bin/ssh-copy-id: ERROR: Host key verification failed.
+
+[?2004hjenkins@master:~$ ssh-copy-id sunbeam@master
+[?2004l/usr/bin/ssh-copy-id: INFO: Source of key(s) to be installed: "/var/lib/jenkins/.ssh/id_rsa.pub"
+The authenticity of host 'master (127.0.1.1)' can't be established.
+ED25519 key fingerprint is SHA256:y/tvEHuUsmmBbzLG4FZAvuRoFmQ14+HSjgooP38YV8c.
+This key is not known by any other names
+Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+/usr/bin/ssh-copy-id: INFO: attempting to log in with the new key(s), to filter out any that are already installed
+/usr/bin/ssh-copy-id: INFO: 1 key(s) remain to be installed -- if you are prompted now it is to install the new keys
+(sunbeam@master) Password: 
+
+Number of key(s) added: 1
+
+Now try logging into the machine, with:   "ssh 'sunbeam@master'"
+and check to make sure that only the key(s) you wanted were added.
+
+[?2004hjenkins@master:~$ ip a
+[?2004l1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: ens33: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc fq_codel state UP group default qlen 1000
+    link/ether 00:0c:29:1c:45:45 brd ff:ff:ff:ff:ff:ff
+    altname enp2s1
+    inet 192.168.80.167/24 brd 192.168.80.255 scope global dynamic noprefixroute ens33
+       valid_

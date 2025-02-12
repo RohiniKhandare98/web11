@@ -119,6 +119,14 @@ stage('OWASP FS SCAN') {
         }
         
 */
+stage('SSH to Server') {
+            steps {
+                withCredentials([sshUserPrivateKey(credentialsId: 'k8-master', keyFileVariable: 'SSH_KEY')]) {
+                    sh "ssh -i $SSH_KEY sunbeam@192.168.80.167 'echo Connected Successfully'"
+                }
+            }
+        }
+
 
     stage('Copy Files from K8s Server') {
             steps {
