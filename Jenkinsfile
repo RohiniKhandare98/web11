@@ -110,7 +110,7 @@ stage('TRIVY SCAN') {
 stage('OWASP FS SCAN') {
            steps {
                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
-               dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+         //      dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
            }
        }
 */
