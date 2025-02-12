@@ -2,7 +2,7 @@ pipeline {
     agent {
         kubernetes {
             cloud 'Kubernetes'  // Name of your Kubernetes cloud in Jenkins
-           yamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod
+//           yamlFile 'p2pod-template.yaml'  // Defines the Jenkins agent pod
         }
     }
   
