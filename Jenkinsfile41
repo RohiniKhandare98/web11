@@ -10,9 +10,6 @@ pipeline {
         DOCKER_IMAGE = "rohini1/web_new"
 	   SCANNER_HOME=tool 'sonar-scanner'
 	KUBECONFIG = credentials('jenkins-k8s-token')	
-     GIT_REPO = 'git@github.com:https://github.com/RohiniKhandare98/web11.git'
-        GIT_BRANCH = 'main'
-        SSH_CRED_ID = 'k8-master'
     }
     stages {
 
@@ -119,32 +116,10 @@ stage('OWASP FS SCAN') {
         }
         
 */
-
-    stage('Copy Files from K8s Server') {
-            steps {
-                sshagent(['jenkins-ssh-key']) {
-                    sh 'scp -r sunbeam@192.168.80.168:/home/sunbeam/p2 home/sunbeam/var/lib/jenkins/workspace/'
-                }
-            }
-        }
-        stage('Push to Git') {
-            steps {
-                dir('workspace') {
-                    sh '''
-                    git init
-                    git remote add origin $GIT_REPO
-                    git checkout -b $GIT_BRANCH || git checkout $GIT_BRANCH
-                    git add .
-                    git commit -m "Updated files from K8s server"
-                    git push origin $GIT_BRANCH
-                    '''
-                }
-            }
-        }
 	stage('Deploy to Kubernetes') {
             steps {
-                sh 'kubectl apply -f httpd-deployment.yaml'  // Deploy the app
+                sh 'kubectl apply -f p2/httpd-deployment.yaml'  // Deploy the app
             }
         }
     }
-}
+}  
