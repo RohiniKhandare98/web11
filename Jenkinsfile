@@ -1,21 +1,46 @@
 pipeline {
-    agent any
-
-    environment {
+    agent {
+        kubernetes {
+            cloud 'kubernetes'  // Name of your Kubernetes cloud in Jenkins
+            yamlFile 'pod-template.yaml'  // Defines the Jenkins agent pod
+        }
+    }
+  
+     environment {
         DOCKER_IMAGE = "rohini1/web_new"
-        SONAR_HOST_URL = 'http://localhost:9000'
-	   SCANNER_HOME=tool 'sonar-scanner'        
-   }
-
+	   SCANNER_HOME=tool 'sonar-scanner'
+	KUBECONFIG = credentials('jenkins-k8s-token')	
+    }
     stages {
-    
-        stage('SCM Checkout') {
+
+        stage('SCM') {
             steps {
-                git branch: 'main', url: 'https://github.com/RohiniKhandare98/web11.git'
+		git branch: 'main', credentialsId: 'git', url: 'https://github.com/RohiniKhandare98/web11.git'
             }
         }
+        
+        // stage("Sonarqube Analysis "){
+        //  steps{   
+        //     script {
+        //      def scannerHome = tool name: 'sonar-scanner', type: 'ToolInstallation'
+           
+        //         withSonarQubeEnv('sonar-server') {
+        //             //sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.projectName=web_app -Dsonar.projectKey=web_app
+        //         sh '''   
+        //             ${scannerHome}/bin/sonar-scanner \ 
+        //             -Dsonar.projectKey=web_app \
+        //             -Dsonar.sources=. \
+        //             -Dsonar.host.url=http://192.168.80.167:9000 \
+        //             -Dsonar.login=sqp_d51608d022e2a637f750a557998f700b644c70b8
+        //             '''
+        //         }
+            
+        //     }
+        //  }    
+        // }
 
-stage('SonarQube Analysis') {
+
+        stage('SonarQube Analysis') {
             steps {
                     withSonarQubeEnv('sonar-server') {
                         sh """
@@ -29,48 +54,80 @@ stage('SonarQube Analysis') {
                 
             }
         }
+/*        stage("quality gate"){
+           steps {
+                script {
+                    waitForQualityGate abortPipeline: false, credentialsId: 'sonar-token' 
+                }
+            } 
+        }
+*/
+/*	stage('TRIVY SCAN') {
+            steps {
+                sh "trivy $DOCKER_IMAGE"
+            }
+        }
+*/
+
 
         stage('Build Docker Image') {
             steps {
-                script {
-                    sh "docker build -t ${DOCKER_IMAGE} ."
-                }
-            }
+                sh "/usr/bin/docker image build -t ${DOCKER_IMAGE}:latest ."
+//sh 'echo "sunbeam" | sudo -S docker image build -t rohini1/web_new:latest .'
+  
+          }
         }
 
-        stage('Security Scan - Trivy') {
+
+stage('OWASP FS SCAN') {
+//           steps {
+  //             dependencyCheck additionalArguments: '--scan ./ --disableYarnAud>
+ //              dependencyCheckPublisher pattern: '**/dependency-check-report.xm>
+           }
+       }
+
+
+stage('TRIVY SCAN') {
             steps {
-                script {
-                    sh '''
-                    trivy image ${DOCKER_IMAGE} || echo "Security scan completed with warnings"
-                    '''
-                }
+                 sh "trivy fs . > trivyfs.txt"
+                   
             }
         }
 
-        stage('Push Docker Image to DockerHub') {
+
+        stage("Push Docker Image") {
             steps {
                 withCredentials([string(credentialsId: 'DOCKER_HUB_TOKEN', variable: 'DOCKER_HUB_TOKEN')]) {
-                    script {
-                        sh '''
-                        echo $DOCKER_HUB_TOKEN | docker login -u rohini1 --password-stdin
-                        docker push ${DOCKER_IMAGE}
-                        '''
-                    }
+                    sh "echo $DOCKER_HUB_TOKEN | /usr/bin/docker login -u rohini1 --password-stdin"
+                    sh "/usr/bin/docker image push ${DOCKER_IMAGE}"
                 }
             }
         }
-    
 
-stage('Deploy to Kubernetes') {
-    steps {
-        script {
-            withKubeConfig([credentialsId: 'kubeconfig']) {
-                sh "kubectl apply -f httpd-deployment.yaml"
+ stage("TRIVY"){
+            steps{
+                sh "trivy image ${DOCKER_IMAGE} > trivyimage.txt" 
+            }
+        }
+stage('OWASP FS SCAN') {
+           steps {
+               dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
+               dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+           }
+       }
+
+   /*     stage("Deploy Docker Service") {
+            steps {
+		sh 'docker container rm --force backend'
+                sh 'docker run -d --name backend -p 4000:80 ${DOCKER_IMAGE}'
+		}
+        }
+        
+*/
+	stage('Deploy to Kubernetes') {
+            steps {
+                sh 'kubectl apply -f p2/httpd-deployment.yaml'  // Deploy the app
             }
         }
     }
-}
-}
-
-}
+}  
