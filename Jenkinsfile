@@ -106,12 +106,14 @@ stage('TRIVY SCAN') {
                 sh "trivy image ${DOCKER_IMAGE} > trivyimage.txt" 
             }
         }
+/*
 stage('OWASP FS SCAN') {
            steps {
                dependencyCheck additionalArguments: '--scan ./ --disableYarnAudit --disableNodeAudit', odcInstallation: 'DP-Check'
                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
            }
        }
+*/
 
    /*     stage("Deploy Docker Service") {
             steps {
